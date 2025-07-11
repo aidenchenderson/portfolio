@@ -94,7 +94,7 @@
   height: 100%;
   width: 0%;
   background: linear-gradient(90deg, #ff7171, #d691ff, #6ff5ff);
-  animation: load-animation 5s infinite ease-in-out;
+  animation: load-animation 3s infinite ease-in-out;
 }
 
 @keyframes load-animation {

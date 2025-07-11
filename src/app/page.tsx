@@ -1,10 +1,12 @@
-import Image from "next/image";
+import NavBar from '@/components/navbar/navbar';
+import HomePage from '../components/home';
 
 export default async function Home() {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return (
-    <div>
-      Home page
-    </div>
+    <main>
+      <NavBar/>
+      <HomePage/>
+    </main>
   );
 }
