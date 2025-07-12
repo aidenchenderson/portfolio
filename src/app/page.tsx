@@ -1,5 +1,5 @@
 import NavBar from '@/components/navbar/navbar';
-import HomePage from '../components/home';
+import HomePage from '../components/home/home';
 
 export default async function Home() {
   await new Promise((resolve) => setTimeout(resolve, 3000));
