@@ -15,8 +15,8 @@ export default function HomePage() {
       <div>
         <p>
           Hey! I'm a computer science student with a passion for software development, 
-          computer graphics, and embedded systems. My goal is to write high-quality, readable, 
-          and optimized code. I strive to become a better software developer than I was yesterday. 
+          computer graphics, and embedded systems/hardware. My goal is to write high-quality, readable, 
+          and optimized code. Every day I strive to become a better programmar than I was yesterday. 
           Thank you for visiting my website!
         </p>
       </div>
