@@ -12,17 +12,16 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col justify-center items-center flex-1">
           <p>
-            right
+            
           </p>
         </div>
       </div>
-      <div>
-        <p>
+      <div className={`${styles.introdiv} flex text-center content-center justify-center items-center`}>
+        <p className={`${styles.introduction} mt-5 mb-5 w-5/8`}>
           Hey! I'm a computer science student with a passion for software development, 
           computer graphics, and embedded systems. My goal is to write high-quality, readable, 
-          and optimized code that has impactful applicational uses. Every day I strive to become 
-          a better software developer than I was yesterday. 
-          Thank you for visiting my website!
+          and optimized code that has impactful applicational uses. Every day I try to become 
+          a better software developer than I was yesterday. Thank you for visiting my website!
         </p>
       </div>
     </div>

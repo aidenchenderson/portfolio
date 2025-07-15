@@ -9,3 +9,16 @@
     font-size: clamp(1rem, 4vw, 2rem);
     line-height: 1;
 }
+
+.introduction {
+    font-size: clamp(1.1rem, 1.5vw, 4rem);
+}
+
+.introdiv {
+    background-color: #212121;
+    border-style: none;
+    border-radius: 5%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
