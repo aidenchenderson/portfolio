@@ -1,8 +1,12 @@
 import styles from './home.module.css';
+import CatImage from './cats';
+//import CursorTrail from '../cursorTrail/cursorTrail';
 
 export default function HomePage() {
+  
   return (
     <div>
+      {/* <CursorTrail/> */}
       <div className="flex flex-wrap flex-row justify-center items-center min-h-screen">
         <div className="flex flex-col justify-center items-center flex-1">
           <div>
@@ -11,9 +15,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center flex-1">
-          <p>
-            
-          </p>
+          <CatImage/>
         </div>
       </div>
       <div className={`${styles.introdiv} flex text-center content-center justify-center items-center`}>
