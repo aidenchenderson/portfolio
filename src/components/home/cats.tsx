@@ -13,7 +13,7 @@ export default function CatImage() {
   });
 
   const catInfo = [
-    { src: catPng1, style: styles.acatimg }, 
+    { src: catPng1, style: styles.acatimg },
     { src: catPng2, style: styles.bcatimg }
   ];
 
