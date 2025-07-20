@@ -5,9 +5,9 @@ export default function Loading() {
     <div className="flex justify-center items-center h-screen flex-col">
       <div className="inline-block relative">
         <h1 aria-hidden="true" className={`${styles.glitch}`}>
-          <span>ahenderson.dev</span>
-          ahenderson.dev
-          <span>ahenderson.dev</span>
+          <span>AHENDERSON.DEV</span>
+          AHENDERSON.DEV
+          <span>AHENDERSON.DEV</span>
         </h1>
         <div className={styles.bar}>
           <div className={styles.load}></div>

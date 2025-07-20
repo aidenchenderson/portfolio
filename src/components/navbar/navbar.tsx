@@ -1,20 +1,8 @@
 'use client';
 import styles from './navbar.module.css';
+import { scrollSections, scrollToSection } from '../shared/scrolling';
 
 export default function NavBar() {
-  const scrollSections: string[] = [
-    'experience',
-    'projects',
-    'skills',
-    'about'
-  ];
-
-  const scrollTo = (section: string) => {
-    const element: HTMLElement | null = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
 
   return (
     <div className={`${styles.logodiv} flex flex-row py-6 px-8 absolute w-screen items-center justify-between`}>
@@ -26,10 +14,10 @@ export default function NavBar() {
       </div>
 
       <div className={`${styles.navbar} flex flex-row py-0 px-0 my-0 mx-0 space-x-8`}>
-        <p className={`${styles.highlight} cursor-pointer text-2xl`} onClick={() => scrollTo(scrollSections[0])}>Experience</p>
-        <p className={`${styles.highlight} cursor-pointer text-2xl`} onClick={() => scrollTo(scrollSections[1])}>Projects</p>
-        <p className={`${styles.highlight} cursor-pointer text-2xl`} onClick={() => scrollTo(scrollSections[2])}>Skills</p>
-        <p className={`${styles.highlight} cursor-pointer text-2xl`} onClick={() => scrollTo(scrollSections[3])}>About</p>
+        <p className={`${styles.highlight} cursor-pointer text-2xl`} onClick={() => scrollToSection(scrollSections[0])}>Experience</p>
+        <p className={`${styles.highlight} cursor-pointer text-2xl`} onClick={() => scrollToSection(scrollSections[1])}>Projects</p>
+        <p className={`${styles.highlight} cursor-pointer text-2xl`} onClick={() => scrollToSection(scrollSections[2])}>Skills</p>
+        <p className={`${styles.highlight} cursor-pointer text-2xl`} onClick={() => scrollToSection(scrollSections[3])}>About</p>
       </div>
     </div>
   );

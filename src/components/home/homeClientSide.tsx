@@ -5,6 +5,7 @@ import Image from "next/image";
 import catPng1 from '../../../public/cat1.png';
 import catPng2 from '../../../public/cat2.png';
 import { useState } from 'react';
+import { scrollSections, scrollToSection } from "../shared/scrolling";
 
 export default function CatImage() {
 
@@ -41,4 +42,13 @@ export default function CatImage() {
     </div>
   );
 
+}
+
+export function AboutButtons() {
+  return (
+    <div className="flex flex-row flex-start mt-5">
+      <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[0])}>More about me!</button>
+      <button className={`${styles.contact} cursor-pointer`} onClick={() => scrollToSection(scrollSections[3])}>Contact info</button>
+    </div>
+  );
 }

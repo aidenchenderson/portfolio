@@ -1,17 +1,19 @@
 import styles from './home.module.css';
-import CatImage from './cats';
+import CatImage, { AboutButtons } from './homeClientSide';
 //import CursorTrail from '../cursorTrail/cursorTrail';
 
 export default function HomePage() {
-  
   return (
     <div>
       {/* <CursorTrail/> */}
-      <div className="flex flex-wrap flex-row justify-center items-center min-h-screen">
+      <div className={`${styles.homecontainer} flex flex-wrap justify-center items-center min-h-screen`}>
         <div className="flex flex-col justify-center items-center flex-1">
           <div>
             <p className={`${styles.title}`}>Aiden Henderson</p>
             <p className={`${styles.subtitle}`}>Computer Science Student</p>
+            <div className="self-start">
+              <AboutButtons/>
+            </div>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center flex-1">
@@ -27,6 +29,5 @@ export default function HomePage() {
         </p>
       </div>
     </div>
-  
   );
 }
