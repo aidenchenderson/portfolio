@@ -27,6 +27,7 @@ export default function CatImage() {
 
   return (
     <div className="flex flex-col items-center">
+      <p className="pb-4">click to view my cats!</p>
       <div className={styles.catcontainer} onClick={changeCat}>
         <Image
           src={nextCat.src}
@@ -47,8 +48,8 @@ export default function CatImage() {
 export function AboutButtons() {
   return (
     <div className="flex flex-row flex-start mt-5">
-      <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[0])}>More about me!</button>
-      <button className={`${styles.contact} cursor-pointer`} onClick={() => scrollToSection(scrollSections[3])}>Contact info</button>
+      <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[0])}>more about me</button>
+      <button className={`${styles.contact} cursor-pointer`} onClick={() => scrollToSection(scrollSections[3])}>contact me</button>
     </div>
   );
 }
