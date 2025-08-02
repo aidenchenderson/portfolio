@@ -2,7 +2,8 @@ export const scrollSections: string[] = [
   'experience',
   'projects',
   'skills',
-  'about'
+  'about',
+  'desc'
 ];
 
 export const scrollToSection = (section: string) => {

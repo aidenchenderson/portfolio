@@ -10,7 +10,7 @@ import { scrollSections, scrollToSection } from "../shared/scrolling";
 export default function CatImage() {
 
   const [catIndex, setCatIndex] = useState(() => {
-    return 0; // run only once
+    return 0; // run only once on mounting
   });
 
   const catInfo = [
@@ -27,8 +27,9 @@ export default function CatImage() {
 
   return (
     <div className="flex flex-col items-center">
-      <p className="pb-4">click to view my cats!</p>
+      <p className={`${styles.clicktext} pb-1`}>click to view my cats!</p>
       <div className={styles.catcontainer} onClick={changeCat}>
+        <div className={styles.catbackground}></div>
         <Image
           src={nextCat.src}
           alt="cat image slider"
@@ -48,7 +49,7 @@ export default function CatImage() {
 export function AboutButtons() {
   return (
     <div className="flex flex-row flex-start mt-5">
-      <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[0])}>more about me</button>
+      <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[4])}>more about me</button>
       <button className={`${styles.contact} cursor-pointer`} onClick={() => scrollToSection(scrollSections[3])}>contact me</button>
     </div>
   );

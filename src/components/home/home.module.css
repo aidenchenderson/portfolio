@@ -1,15 +1,29 @@
+/* general div styles */
 .homecontainer {
   flex-direction: row;
+  position: relative;
+}
+
+.homediv {
+  flex: 1;
 }
 
 @media screen and (max-width: 1331px) {
   .homecontainer {
     flex-direction: column;
     padding-top: 2vh;
-    margin: 0 0 0 0;
+    gap: 2rem;
+  }
+  .homediv {
+    flex: unset;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
+/* name and description */
 .title {
   font-size: clamp(2rem, 8vw, 5rem);
   font-weight: 700;
@@ -22,6 +36,7 @@
   line-height: 1;
 }
 
+/* cat images and container */
 .catcontainer {
   position: relative;
   width: 33vw;
@@ -33,8 +48,11 @@
 
 @media screen and (max-width: 1331px) {
   .catcontainer {
-    width: 50vw;
-    height: 30vh;
+    width: 70vw;
+    height: 50vh;
+  }
+  .catbackground::after {
+    translate: -50.25% -50%;
   }
 }
 
@@ -43,7 +61,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -51,18 +69,7 @@
   cursor: pointer;
 }
 
-.bcatimg {
-  transform: rotate(-5deg);
-}
-
-.acatimg {
-  transform: rotate(5deg);
-}
-
-.fade {
-  opacity: 0;
-}
-
+/* animated buttons */
 .more {
   display: flex;
   align-items: center;
@@ -111,22 +118,45 @@
 }
 
 .contact::after,
-.contact::before {
+.contact::before,
+.catbackground::after {
   content: '';
   position: absolute;
-  height: 105%;
-  width: 102%;
-  background-image: conic-gradient(from var(--angle),
-      #ff7171 0%,
-      #d691ff 33%,
-      #6ff5ff 66%,
-      #ff7171 100%);
   top: 50%;
   left: 50%;
-  translate: -49.75% -50%;
   z-index: -1;
-  border-radius: 1.75rem;
+}
+
+.contact::after,
+.contact::before {
+  height: 105%;
+  width: 102%;
+  translate: -49.75% -50%;
   animation: 3s spin linear infinite;
+  border-radius: 1.75rem;
+  background-image: conic-gradient(from var(--angle),
+    #ff7171 0%,
+    #d691ff 25%,
+    #6ff5ff 50%,
+    #d691ff 75%,
+    #ff7171 100%
+  );
+}
+
+.catbackground::after {
+  height: 100.75%;
+  width: 100.75%;
+  translate: -50% -50%;
+  animation: 10s spin linear infinite;
+  border-radius: 2rem;
+  background-image: conic-gradient(from var(--angle),
+    transparent 0%,
+    #d691ff 32.9%,
+    transparent 33%,
+    #ff7171aa 65.9%,
+    transparent 66%,
+    #6ff5ffaa 100%
+  );
 }
 
 .contact::before {
@@ -144,15 +174,7 @@
   }
 }
 
+/* small introduction section */
 .introduction {
   font-size: clamp(1.1rem, 1.5vw, 4rem);
-}
-
-.introdiv {
-  background-color: #212121;
-  border-style: none;
-  border-radius: 5%;
-
-  margin-left: auto;
-  margin-right: auto;
 }

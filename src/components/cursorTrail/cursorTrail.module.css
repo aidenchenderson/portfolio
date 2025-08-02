@@ -1,9 +1,0 @@
-.trail {
-  height: 20px;
-  width: 20px;
-  border-radius: 20px;
-  background-color: linear-gradient(90deg, #ff7171, #d691ff, #6ff5ff);
-  position: absolute;
-  top: 0;
-  left: 0;
-}

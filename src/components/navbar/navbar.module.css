@@ -1,6 +1,7 @@
 .highlight {
   position: relative;
   transition: transform 0.3s ease-in-out;
+  z-index: 10;
 }
 
 .highlight:hover {
