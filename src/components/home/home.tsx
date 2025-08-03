@@ -1,5 +1,6 @@
 import styles from './home.module.css';
 import CatImage, { AboutButtons } from './homeClientSide';
+import Links from '@/components/links/links';
 
 export default function HomePage() {
   return (
@@ -17,6 +18,9 @@ export default function HomePage() {
         <div className={`${styles.homediv} flex flex-col justify-center items-center`}>
           <CatImage/>
         </div>
+      </div>
+      <div className={`${styles.link}`}>
+        <Links/>
       </div>
       <div id="desc" className={`bg-[#151515] border-none rounded-tl-[3rem] rounded-tr-[3rem] mx-auto flex flex-col text-center content-center justify-center items-center`}>
         <p className={`${styles.introduction} mt-10 mb-10 w-3/4`}>
