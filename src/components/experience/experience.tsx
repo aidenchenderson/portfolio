@@ -8,7 +8,11 @@ export default function Experience() {
           <p className={`${styles.title}`}>
             Experience
           </p>
+          <p></p>
         </div>
+      </div>
+      <div>
+        
       </div>
     </div>
   );

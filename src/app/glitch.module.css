@@ -85,7 +85,7 @@
 .bar {
   width: 100%;
   height: clamp(1px, 3vh, 6px);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #ffffff1a;
   overflow: hidden;
   border-radius: clamp(1px, 3vh, 3px);;
 }

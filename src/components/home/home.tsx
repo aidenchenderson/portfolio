@@ -26,8 +26,10 @@ export default function HomePage() {
         <p className={`${styles.introduction} mt-10 mb-10 w-3/4`}>
           Hi! I’m a computer science student with a passion for software development, computer graphics, and embedded systems. 
           My goal is to write high-quality, readable, and optimized code that makes a difference in real-world applications.
-          Whether it's at school or on the job, learning is a core value of mine. Here are some quick facts about me:
+          Here are some quick facts about me:
         </p>
+        {/* Learning is a core value of mine, and through my challenges and mistakes, I've learned not just how to solve problems
+          but how to approach them with patience, curiosity, and humility. */}
         <div className={`${styles.facts} flex flex-row items-start justify-center content-center mb-10 gap-30`}>
           <div>
             <p className={`${styles.number} font-bold`}>8</p>

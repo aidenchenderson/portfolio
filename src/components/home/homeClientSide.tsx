@@ -50,7 +50,7 @@ export function AboutButtons() {
   return (
     <div className="flex flex-row flex-start mt-5">
       <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[4])}>more about me</button>
-      <button className={`${styles.contact} cursor-pointer`} onClick={() => scrollToSection(scrollSections[3])}>contact me</button>
+      <button className={`${styles.contact} cursor-pointer`} onClick={() => scrollToSection(scrollSections[3])}>connect with me</button>
     </div>
   );
 }
