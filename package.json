@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^12.23.12",
+    "geist": "^1.4.2",
     "next": "15.3.5",
     "nextjs-progressbar": "^0.0.16",
     "react": "^19.0.0",

@@ -3,3 +3,24 @@
   font-weight: 700;
   line-height: 1;
 }
+
+.year {
+  color: #0a0a0a;
+  font-size: clamp(0.75rem, 3vw, 1.25rem);
+  padding: 0.5em 2em;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1.75rem;
+  position: relative;
+  font-weight: bold;
+  border: 1.75px solid transparent;
+  border-color: #ffffff;
+  isolation: isolate;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.year:hover {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}

@@ -41,8 +41,9 @@ export default function HomePage() {
             <p>(via School Clubs)</p>
           </div>
           <div>
-            <p className={`${styles.number} font-bold`}>2</p>
-            <p>Years of University Complete</p>
+            <p className={`${styles.number} font-bold`}>404</p>
+            <p>Days spent centering a div</p>
+            <p>;)</p>
           </div>
         </div>
       </div>
