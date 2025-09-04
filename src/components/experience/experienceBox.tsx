@@ -17,7 +17,7 @@ export default function ExperienceBox({ imgSrc, jobTitle, date, description, ski
   }
 
   return (
-    <div className='flex flex-row gap-5'>
+    <div className='flex flex-row gap-5 mb-3'>
       <div className='flex flex-col shrink-0 relative'>
         <Image
           src={imgSrc}
