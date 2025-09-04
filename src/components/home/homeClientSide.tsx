@@ -49,7 +49,7 @@ export default function CatImage() {
 export function AboutButtons() {
   return (
     <div className="flex flex-row flex-start mt-5">
-      <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[4])}>more information</button>
+      <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[4])}>more about me</button>
       <button className={`${styles.contact} cursor-pointer`} onClick={() => scrollToSection(scrollSections[3])}>let's connect!</button>
     </div>
   );
