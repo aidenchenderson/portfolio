@@ -23,7 +23,7 @@ export default function HomePage() {
         <Links/>
       </div>
       <div id="desc" className={`bg-[#151515] border-none rounded-tl-[3rem] rounded-tr-[3rem] mx-auto 
-                                 flex flex-col text-center content-center justify-center items-center`}>
+                                 flex flex-col text-center content-center justify-center items-center py-10`}>
         <p className={`${styles.introduction} mt-10 mb-10 w-3/4`}>
           Hi! I’m a computer science student with a passion for software development, computer graphics, and embedded systems. 
           My goal is to write high-quality, readable, and optimized code that makes a difference in real-world applications.
