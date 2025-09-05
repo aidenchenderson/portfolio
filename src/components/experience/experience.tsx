@@ -60,7 +60,7 @@ export default function Experience() {
       {activeYear != 0 &&
         <div className={`${styles.fade} mt-5 bg-[#0a0a0a] w-[70vw] h-[70vh] rounded-lg text-[#ffffff]`}>
           {activeYear == 2024 &&
-            <div className='flex flex-col gap-6'>
+            <div className={`${styles.scrollable} flex flex-col gap-6`}>
               <ExperienceBox 
                 imgSrc='/opgLogo.png'
                 jobTitle='Data Analysis Intern'
@@ -82,7 +82,7 @@ export default function Experience() {
             </div>
           }
           {activeYear == 2025 &&
-            <div className='flex flex-col gap-6'>
+            <div className={`${styles.scrollable} flex flex-col gap-6`}>
               <ExperienceBox
                 imgSrc='/opgLogo.png'
                 jobTitle='Full Stack Software Development Intern'

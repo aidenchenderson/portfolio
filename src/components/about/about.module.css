@@ -1,0 +1,7 @@
+.connectTitle {
+    font-size: clamp(2rem, 5vw, 2rem);
+}
+
+.subText {
+    font-size: clamp(0.75rem, 3vw, 1rem);
+}
