@@ -1,4 +1,12 @@
 .title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+}
+
+.image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.25);
 }

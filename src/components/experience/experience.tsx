@@ -89,12 +89,12 @@ export default function Experience() {
                 date='May 2025 - Aug 2025'
                 description={descOpg2}
                 skills={skillsOpg2} />
-              <ExperienceBox 
+              {/* <ExperienceBox 
                 imgSrc='/MacAI.png'
                 jobTitle='Mac AI Project Lead'
                 date='Sep 2025 - ??? 2026'
                 description={descMacAi2}
-                skills={skillsMacAi2} />
+                skills={skillsMacAi2} /> */}
             </div>
           }
         </div>

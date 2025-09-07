@@ -3,10 +3,8 @@ import Links from '../links/links';
 
 export default function About() {
   return (
-    // div for making the background gray
     <div className='bg-[#151515] border-none rounded-tl-[3rem] rounded-tr-[3rem] mx-auto 
                     flex flex-col justify-center justify-items-center items-center h-screen w-screen'>
-      {/* div for making a black circle */}
       <div className={`${styles.circle} bg-[#0a0a0a] flex flex-col items-center justify-center content-center w-[500px] h-[500px] rounded-[50%]`}>
         <div className='flex flex-col items-center'>
           <p className={`${styles.connectTitle} mb-3 pt-3`}>Connect with Me</p>
@@ -16,7 +14,7 @@ export default function About() {
           </p>
         </div>
         <div className='flex relative pb-3'>
-          <a href='mailto:aiden.henderson.c@gmail.com?subject=A.%20Henderson%20Website%20Visit'>
+          <a href='mailto:aiden.henderson.c@gmail.com'>
             <button className={`${styles.emailButton} cursor-pointer`}>Email</button>
           </a>
         </div>
