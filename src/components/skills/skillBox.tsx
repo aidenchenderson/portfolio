@@ -41,7 +41,7 @@ export default function SkillBox({ images }: skillBoxData) {
               src={images[2]}
               width={100}
               height={100}
-              alt='skill image 2'
+              alt='skill image 3'
               className={styles.image}
               quality={100}
               unoptimized
@@ -56,7 +56,7 @@ export default function SkillBox({ images }: skillBoxData) {
               src={images[3]}
               width={100}
               height={100}
-              alt='skill image'
+              alt='skill image 4'
               className={styles.image}
               quality={100}
               unoptimized
@@ -69,7 +69,7 @@ export default function SkillBox({ images }: skillBoxData) {
               src={images[4]}
               width={100}
               height={100}
-              alt='skill image 2'
+              alt='skill image 5'
               className={styles.image}
               quality={100}
               unoptimized
@@ -82,7 +82,7 @@ export default function SkillBox({ images }: skillBoxData) {
               src={images[5]}
               width={100}
               height={100}
-              alt='skill image 2'
+              alt='skill image 6'
               className={styles.image}
               quality={100}
               unoptimized
