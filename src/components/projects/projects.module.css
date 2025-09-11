@@ -1,4 +1,9 @@
 .title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+}
+
+.project {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  text-align: center;
 }
