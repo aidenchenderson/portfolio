@@ -7,6 +7,9 @@ export default function Projects() {
       <div className='flex flex-col items-start justify-start content-center'>
         <p className={`${styles.title} pt-10`}>Project Showcase</p>
       </div>
+      <div>
+        
+      </div>
     </div>
   );
 }
