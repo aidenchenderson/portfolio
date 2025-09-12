@@ -7,7 +7,7 @@ export default function NavBar() {
   return (
     <div className={`${styles.logodiv} flex flex-row py-6 px-8 absolute w-screen items-center justify-between`}>
       <div className="flex flex-row py-0 px-0 my-0 mx-0 items-center">
-        <img src="favicon.ico" className="cursor-pointer mr-1 h-6 w-auto"></img>
+        <img src="favicon.ico" className="cursor-pointer mr-1 h-6 w-auto" alt='website logo'></img>
         <p className={`${styles.webaddress} cursor-pointer`} aria-hidden="true" style={{ fontSize: '1.5rem', fontWeight: '400' }}>
           AHENDERSON.DEV
         </p>

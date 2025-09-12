@@ -3,6 +3,8 @@ import SkillBox from './skillBox';
 import externalStyles from '../home/home.module.css';
 
 export default function Skills() {
+  const skillsTools: string = `I've used the Git CLI and GitHub for many personal projects and school clubs. As well as Azure for website deployment.`
+
   const frontendSkills: string[] = [
     '/skills/tsLogo.png',
     '/skills/htmLogo.png',
@@ -59,7 +61,7 @@ export default function Skills() {
             <p className={`${styles.subtitle}`}>Tools/Tech</p>
             <SkillBox images={toolsSkills} />
             <p className='mt-4 text-lg leading-relaxed'>
-              I've used the Git CLI and GitHub for many personal projects and school clubs. As well as Azure for website deployment.
+              {skillsTools}
             </p>
           </div>
         </div>

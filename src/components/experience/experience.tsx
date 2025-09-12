@@ -5,10 +5,6 @@ import styles from './experience.module.css';
 import ExperienceBox from './experienceBox';
 
 export default function Experience() {
-  // skills and description for Sept 2025 - ??? 2026 club
-  const skillsMacAi2: string[] = ["AI, Raspberry PI, Embedded Systems"];
-  const descMacAi2: string = ``;
-
   // skills and description for May 2025 - Aug 2025 co-op.
   const skillsOpg2: string[] = ["C#", ".NET core", "TypeScript", "Angular", "Project Management"];
   const descOpg2: string = `Joining my team mid-development, I quickly learned tools like C#, Angular, Azure Devops, and company-specific technologies. 
@@ -89,12 +85,6 @@ export default function Experience() {
                 date='May 2025 - Aug 2025'
                 description={descOpg2}
                 skills={skillsOpg2} />
-              {/* <ExperienceBox 
-                imgSrc='/MacAI.png'
-                jobTitle='Mac AI Project Lead'
-                date='Sep 2025 - ??? 2026'
-                description={descMacAi2}
-                skills={skillsMacAi2} /> */}
             </div>
           }
         </div>
