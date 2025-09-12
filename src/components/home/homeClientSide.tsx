@@ -8,7 +8,6 @@ import { useState } from 'react';
 import { scrollSections, scrollToSection } from "../shared/scrolling";
 
 export default function CatImage() {
-
   const [catIndex, setCatIndex] = useState(() => {
     return 0; // run only once on mounting
   });
@@ -47,10 +46,13 @@ export default function CatImage() {
 }
 
 export function AboutButtons() {
+  const aboutDesc: string = `more about me`
+  const connectDesc: string = `let's connect!`
+
   return (
     <div className="flex flex-row flex-start mt-5">
-      <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[4])}>more about me</button>
-      <button className={`${styles.contact} cursor-pointer`} onClick={() => scrollToSection(scrollSections[3])}>let's connect!</button>
+      <button className={`${styles.more} cursor-pointer`} onClick={() => scrollToSection(scrollSections[4])}>{aboutDesc}</button>
+      <button className={`${styles.contact} cursor-pointer`} onClick={() => scrollToSection(scrollSections[3])}>{connectDesc}</button>
     </div>
   );
 }

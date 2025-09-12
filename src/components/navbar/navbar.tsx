@@ -1,13 +1,20 @@
 'use client';
 import styles from './navbar.module.css';
 import { scrollSections, scrollToSection } from '../shared/scrolling';
+import Image from 'next/image';
 
 export default function NavBar() {
 
   return (
     <div className={`${styles.logodiv} flex flex-row py-6 px-8 absolute w-screen items-center justify-between`}>
       <div className="flex flex-row py-0 px-0 my-0 mx-0 items-center">
-        <img src="favicon.ico" className="cursor-pointer mr-1 h-6 w-auto" alt='website logo'></img>
+        <Image
+          src="/favicon.ico"
+          alt="website logo"
+          width={24}
+          height={24}
+          className="cursor-pointer mr-1"
+        />
         <p className={`${styles.webaddress} cursor-pointer`} aria-hidden="true" style={{ fontSize: '1.5rem', fontWeight: '400' }}>
           AHENDERSON.DEV
         </p>
