@@ -16,3 +16,12 @@ git clone https://github.com/aidenchenderson/portfolio.git
 cd portfolio
 npm i
 npm run dev
+```
+
+or if you want to run the prod version:
+
+```bash
+npm i
+npm run build
+npm run start
+```

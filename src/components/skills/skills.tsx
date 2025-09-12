@@ -54,7 +54,7 @@ export default function Skills() {
             <SkillBox images={backendSkills} />
             <p className='mt-4 text-lg leading-relaxed'>
               I have taken many classes in C, C++, and Java such as Operating Systems, Computer Graphics, and Object-Oriented Programming. I also have
-              professional experience with C# building APIs.
+              professional experience building APIs with C#.
             </p>
           </div>
           <div className='flex flex-col items-center text-center max-w-sm px-4'>
