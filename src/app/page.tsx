@@ -8,7 +8,7 @@ import TopButton from '@/components/shared/topButton';
 import Footer from '@/components/footer/footer';
 
 export default async function Home() {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 3000)); // epic fake loading screen
   return (
     <main>
       <NavBar/>
