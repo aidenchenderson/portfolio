@@ -31,7 +31,7 @@ export default function HomePage() {
         <p className={`${styles.introduction} mt-10 mb-10 w-3/4`}>
           {shortDesc}
         </p>
-        <div className={`${styles.facts} flex flex-row items-start justify-center content-center mb-10 gap-30`}>
+        <div className={`${styles.facts} flex flex-row items-start justify-center content-center mb-10 gap-8`}>
           <div>
             <p className={`${styles.number} font-bold`}>8</p>
             <p>Months of Co-op/Internship Experience</p>

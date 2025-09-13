@@ -49,7 +49,7 @@ export default function Experience() {
         </div>
       </div>
       <p className={`${styles.description} mt-1 mb-1`}>Select a year for a breakdown of my notable experience</p>
-      <div className={`${styles.buttonContainer} flex flex-row justify-items-center items-center content-center mt-5 gap-30`}>
+      <div className={`${styles.buttonContainer} flex flex-row justify-items-center items-center content-center mt-5 gap-8`}>
         <button className={`${styles.year} cursor-pointer`} onClick={() => changeYear(2024)}>2024</button>
         <button className={`${styles.year} cursor-pointer`} onClick={() => changeYear(2025)}>2025</button>
       </div>
