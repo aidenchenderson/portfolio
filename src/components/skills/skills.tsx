@@ -54,7 +54,7 @@ export default function Skills() {
             <p className={`${styles.subtitle}`}>Backend</p>
             <SkillBox images={backendSkills} />
             <p className='mt-4 text-lg leading-relaxed'>
-              I have taken many classes in C, C++, and Java, such as Operating Systems, Computer Graphics, and Object-Oriented Programming. I also have
+              I have taken classes in C, C++, and Java, such as Operating Systems, Computer Graphics, and OOP. I also have
               professional experience building APIs with C#.
             </p>
           </div>
