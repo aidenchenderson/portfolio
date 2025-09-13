@@ -3,7 +3,8 @@ import SkillBox from './skillBox';
 import externalStyles from '../home/home.module.css';
 
 export default function Skills() {
-  const skillsTools: string = `I've used the Git CLI and GitHub for many personal projects and school clubs. As well as Azure for website deployment.`
+  const skillsTools: string = `I've used the Git CLI and GitHub for many personal projects and school clubs. 
+    I've also used Azure for website deployment and build pipelines.`
 
   const frontendSkills: string[] = [
     '/skills/tsLogo.png',
@@ -53,7 +54,7 @@ export default function Skills() {
             <p className={`${styles.subtitle}`}>Backend</p>
             <SkillBox images={backendSkills} />
             <p className='mt-4 text-lg leading-relaxed'>
-              I have taken many classes in C, C++, and Java such as Operating Systems, Computer Graphics, and Object-Oriented Programming. I also have
+              I have taken many classes in C, C++, and Java, such as Operating Systems, Computer Graphics, and Object-Oriented Programming. I also have
               professional experience building APIs with C#.
             </p>
           </div>
@@ -69,7 +70,7 @@ export default function Skills() {
       <div className={`${styles.learn} w-1/2 mt-5 mb-10`}>
         <p>
           Learning has always been a core value of mine; whether in club projects, coursework, or professional experience.
-          Every co-op I am looking to learn new skills both technical and soft, and to challenge myself by trying new roles of development.
+          Every co-op I am looking to learn new skills, both technical and soft, and to challenge myself by trying new roles.
         </p>
       </div>
     </div>

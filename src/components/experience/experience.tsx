@@ -7,7 +7,7 @@ import ExperienceBox from './experienceBox';
 export default function Experience() {
   // skills and description for May 2025 - Aug 2025 co-op.
   const skillsOpg2: string[] = ["C#", ".NET core", "TypeScript", "Angular", "Project Management"];
-  const descOpg2: string = `Joining my team mid-development, I quickly learned tools like C#, Angular, Azure Devops, and company-specific technologies. 
+  const descOpg2: string = `Joining my team mid-development, I quickly learned tools like C#, Angular, Azure DevOps, and company-specific technologies. 
     Through tasks like building REST APIs, I was able to learn these technologies within two weeks. As I grew more familiar with these tools, 
     I became a lead developer, hosting stakeholder meetings and mentoring other students. With the app serving 500+ users, this co-op taught 
     me not only how to write code but also to create high quality solutions and use user feedback to drive improvements.`;
@@ -15,7 +15,7 @@ export default function Experience() {
   // skills and description for Sept 2024 - April 2025 club
   const skillsGDSC: string[] = ["Express JS", "MySQL", "OpenAI API"];
   const descGDSC: string = `I volunteered to be an open-source developer at the McMaster Google Student Developer Club.
-    The team created a mental health journalling web application, with a focus on helping the user document their thoughts and receive feedback 
+    The team created a mental health journaling web application, with a focus on helping the user document their thoughts and receive feedback 
     from the AI. My role was a frontend and AI developer on the team, implementing the chatbot 'texting' page with Express JS and OpenAI's API. I also
     helped fellow teammates develop the backend with the planning and creation of tables.`;
 

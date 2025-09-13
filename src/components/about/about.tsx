@@ -9,7 +9,7 @@ export default function About() {
         <div className='flex flex-col items-center'>
           <p className={`${styles.connectTitle} mb-3 pt-3`}>Connect with Me</p>
           <p className={`${styles.subText} w-1/2 text-center mb-2 pb-5`}>
-            Whether you are a university student, industry professional, or you just want to say hi,
+            Whether you are a university student, an industry professional, or you just want to say hi,
             feel free to email me!
           </p>
         </div>
