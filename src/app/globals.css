@@ -3,6 +3,14 @@
 :root {
   --background: #000817;
   --foreground: #FFFFFF;
+
+  --color-grid-blue: #4DABF7;
+  --color-grid-pink: #F783AC;
+  --color-grid-yellow: #FFFB82;
+
+  --color-box-background: #050a10;
+  --color-box-border: #1e293b;
+  --color-box-background-shadow: #000000e6;
 }
 
 @theme inline {
@@ -11,6 +19,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
