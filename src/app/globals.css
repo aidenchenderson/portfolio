@@ -1,13 +1,8 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #000817;
+  --foreground: #FFFFFF;
 }
 
 @theme inline {
@@ -19,18 +14,24 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000817;
+    --foreground: #FFFFFF;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* feature for those who do not like animations */
+/* scroll bar settings */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888888 var(--background);
+}
+
+/* disable animations for users who've disabled animations in their browser */
 @media (prefers-reduced-motion: reduced) {
   *,
   ::before,
