@@ -7,6 +7,11 @@ interface MousePosition {
   y: number;
 }
 
+interface HoverInformation {
+  text: string;
+  visible: boolean;
+}
+
 export default function GridBackground() {
   // initialize mouse position to (0, 0) on component render
   const [mousePosition, setMousePosition] = useState<MousePosition>(() => { return { x: 0, y: 0 } });
@@ -36,8 +41,17 @@ export default function GridBackground() {
     movementTimerRef.current = setTimeout(() => {
       setMouseIsMoving(false);
     }, maskFadeTime);
+  };
 
-    // handle image changes on hover
+  // initialize the additional hover info to hidden on component render
+  const [hoverInformation, setHoverInformation] = useState<HoverInformation>(() => { return { text: "", visible: false } });
+
+  const handleEnterHoverText = (hoverText: string) => {
+    setHoverInformation({ text: hoverText, visible: true });
+  };
+
+  const handleExitHoverText = () => {
+    setHoverInformation(prev => ({ ...prev, visible: false }));
   }
 
   return (
@@ -71,6 +85,7 @@ export default function GridBackground() {
         }}
       />
 
+
       {/* container for website header */}
       <div className="relative z-10 p-10 pointer-events-none">
         <div className="
@@ -97,7 +112,7 @@ export default function GridBackground() {
       </div>
 
       {/* container for personal links */}
-      <div className="relative z-10 px-10 pointer-events-none whitespace-nowrap">
+      <div className="relative z-10 px-10 pointer-events-none whitespace-nowrap flex flex-row items-start gap-10">
         <div className="
           relative inline-block p-10
           bg-(--color-box-background) border-(--color-box-border) border-2
@@ -111,15 +126,18 @@ export default function GridBackground() {
               <div className="w-16 flex justify-center shrink-0">
                 <Image
                   src={'/WhiteMailIcon.png'}
-                  width={64}
-                  height={64}
+                  width={60}
+                  height={60}
                   alt="Mail Icon"
+                  className="select-none"
                 />
               </div>
               <a
                 className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
                 href="mailto:aiden.henderson.c@gmail.com"
                 target="_blank"
+                onMouseEnter={() => handleEnterHoverText("Feel free to reach out regarding my resume, projects, or just to say hi. I'm always open for a chat!")}
+                onMouseLeave={handleExitHoverText}
               >
                 aiden.henderson.c@gmail.com
               </a>
@@ -133,12 +151,15 @@ export default function GridBackground() {
                   width={50}
                   height={50}
                   alt="LinkedIn Logo"
+                  className="select-none"
                 />
               </div>
               <a
                 className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
                 href="https://linkedin.com/in/aidenchenderson"
                 target="_blank"
+                onMouseEnter={() => handleEnterHoverText("Check out my LinkedIn to explore my professional experience, skills, and academic journey.")}
+                onMouseLeave={handleExitHoverText}
               >
                 linkedin.com/in/aidenchenderson
               </a>
@@ -152,12 +173,15 @@ export default function GridBackground() {
                   width={64}
                   height={64}
                   alt="GitHub Logo"
+                  className="select-none"
                 />
               </div>
               <a
                 className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
                 href="https://github.com/aidenchenderson"
                 target="_blank"
+                onMouseEnter={() => handleEnterHoverText("Explore my GitHub to see the architecture, code, and ideas behind my projects.")}
+                onMouseLeave={handleExitHoverText}
               >
                 github.com/aidenchenderson
               </a>
@@ -165,7 +189,31 @@ export default function GridBackground() {
 
           </div>
         </div>
+
+        {/* extra information container that appears on hover */}
+        <div
+          className="transition-opacity duration-300"
+          style={{
+            opacity: hoverInformation.visible ? 1 : 0
+          }}
+        >
+          <div className="
+          relative inline-block p-5 w-59
+          bg-(--color-box-background) border-(--color-box-border) border-2
+          shadow-[0_0_20px_var(--color-box-background-shadow)] 
+          pointer-events-auto
+          whitespace-normal"
+          >
+            <p
+              className="text-[#FFFFFF] text-1xl"
+            >
+              {hoverInformation.text}
+            </p>
+          </div>
+        </div>
       </div>
+
+
     </div>
   );
 }
