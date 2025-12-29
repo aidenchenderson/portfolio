@@ -1,5 +1,6 @@
 'use client';
-import {useState, MouseEvent, useRef} from "react";
+import { useState, MouseEvent, useRef } from "react";
+import Image from "next/image";
 
 interface MousePosition {
   x: number;
@@ -8,11 +9,11 @@ interface MousePosition {
 
 export default function GridBackground() {
   // initialize mouse position to (0, 0) on component render
-  const [mousePosition, setMousePosition] = useState<MousePosition>(() => {return {x: 0, y: 0}});
+  const [mousePosition, setMousePosition] = useState<MousePosition>(() => { return { x: 0, y: 0 } });
 
   // initialize a state to track user mouse movement
   // timeout controls whether the mask layer is visible
-  const [mouseIsMoving, setMouseIsMoving] = useState(() => {return false});
+  const [mouseIsMoving, setMouseIsMoving] = useState(() => { return false });
   const movementTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // time (in miliseconds) to show the masked layer after the user stops moving
@@ -26,7 +27,7 @@ export default function GridBackground() {
       x: event.clientX - rect.left,
       y: event.clientY - rect.top
     });
- 
+
     setMouseIsMoving(true);
 
     // reset the movement detection timer
@@ -35,10 +36,12 @@ export default function GridBackground() {
     movementTimerRef.current = setTimeout(() => {
       setMouseIsMoving(false);
     }, maskFadeTime);
+
+    // handle image changes on hover
   }
 
   return (
-    <div 
+    <div
       onMouseMove={handleMousePositionChange}
       className="relative min-h-screen w-full bg-[#050a10] overflow-hidden group"
     >
@@ -49,11 +52,11 @@ export default function GridBackground() {
         bg-[linear-gradient(to_right,#4dabf7_3px,transparent_3px),linear-gradient(to_bottom,#4dabf7_3px,transparent_3px)]
         bg-size-[58px_58px]
         bg-position-[-29px_-29px]
-        drop-shadow-[0_0_10px_#4dabf7]"      
+        drop-shadow-[0_0_10px_#4dabf7]"
       />
 
       {/* masked grid for interactive mouse move */}
-      <div 
+      <div
         className="
           absolute inset-0 z-0 transition-opacity duration-300
           bg-[linear-gradient(to_right,#f783ac_3px,transparent_3px),linear-gradient(to_bottom,#f783ac_3px,transparent_3px)]
@@ -76,8 +79,8 @@ export default function GridBackground() {
           shadow-[0_0_20px_var(--color-box-background-shadow)] 
           pointer-events-auto"
         >
-          <h1 
-            aria-hidden="true" 
+          <h1
+            aria-hidden="true"
             className="text-8xl font-bold font-sans select-none relative"
           >
             <span className="relative z-10 text-[#FFFFFF]">AHENDERSON.DEV</span>
@@ -94,23 +97,72 @@ export default function GridBackground() {
       </div>
 
       {/* container for personal links */}
-      <div className="relative z-10 px-10 pointer-events-none">
+      <div className="relative z-10 px-10 pointer-events-none whitespace-nowrap">
         <div className="
           relative inline-block p-10
           bg-(--color-box-background) border-(--color-box-border) border-2
           shadow-[0_0_20px_var(--color-box-background-shadow)] 
           pointer-events-auto"
         >
-          <div className="flex flex-col">
-            <div className="flex flex-row">
-              a
+          <div className="flex flex-col text-4xl space-y-8">
+
+            {/* email information */}
+            <div className="flex flex-row items-center gap-6">
+              <div className="w-16 flex justify-center shrink-0">
+                <Image
+                  src={'/WhiteMailIcon.png'}
+                  width={64}
+                  height={64}
+                  alt="Mail Icon"
+                />
+              </div>
+              <a
+                className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
+                href="mailto:aiden.henderson.c@gmail.com"
+                target="_blank"
+              >
+                aiden.henderson.c@gmail.com
+              </a>
             </div>
-            <div className="flex flex-row">
-              b
+
+            {/* linkedin information */}
+            <div className="flex flex-row items-center gap-6">
+              <div className="w-16 flex justify-center shrink-0">
+                <Image
+                  src={'/LinkedInLogo.png'}
+                  width={50}
+                  height={50}
+                  alt="LinkedIn Logo"
+                />
+              </div>
+              <a
+                className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
+                href="https://linkedin.com/in/aidenchenderson"
+                target="_blank"
+              >
+                linkedin.com/in/aidenchenderson
+              </a>
             </div>
-            <div className="flex flex-row">
-              c
+
+            {/* github information */}
+            <div className="flex flex-row items-center gap-6">
+              <div className="w-16 flex justify-center shrink-0">
+                <Image
+                  src={'/GitHubLogo.png'}
+                  width={64}
+                  height={64}
+                  alt="GitHub Logo"
+                />
+              </div>
+              <a
+                className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
+                href="https://github.com/aidenchenderson"
+                target="_blank"
+              >
+                github.com/aidenchenderson
+              </a>
             </div>
+
           </div>
         </div>
       </div>
