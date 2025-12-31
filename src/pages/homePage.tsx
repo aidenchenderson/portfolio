@@ -1,6 +1,7 @@
 'use client';
 import { useState, MouseEvent, useRef } from "react";
 import Image from "next/image";
+import "../styles/homePage.css";
 
 interface MousePosition {
   x: number;
@@ -12,7 +13,7 @@ interface HoverInformation {
   visible: boolean;
 }
 
-export default function GridBackground() {
+export default function HomePage() {
   // initialize mouse position to (0, 0) on component render
   const [mousePosition, setMousePosition] = useState<MousePosition>(() => { return { x: 0, y: 0 } });
 
@@ -76,8 +77,7 @@ export default function GridBackground() {
           bg-[linear-gradient(to_right,#f783ac_3px,transparent_3px),linear-gradient(to_bottom,#f783ac_3px,transparent_3px)]
           bg-size-[58px_58px]
           bg-position-[-29px_-29px]
-          drop-shadow-[0_0_10px_#f783ac]
-        "
+          drop-shadow-[0_0_10px_#f783ac]"
         style={{
           opacity: mouseIsMoving ? 1 : 0,
           WebkitMaskImage: `radial-gradient(circle 200px at ${mousePosition.x}px ${mousePosition.y}px, black 20%, transparent 100%)`,
@@ -88,11 +88,12 @@ export default function GridBackground() {
 
       {/* container for website header */}
       <div className="relative z-10 p-10 pointer-events-none">
-        <div className="
-          relative inline-block p-10
-          bg-(--color-box-background) border-(--color-box-border) border-2
-          shadow-[0_0_20px_var(--color-box-background-shadow)] 
-          pointer-events-auto"
+        <div
+          className="
+            relative inline-block p-10
+            bg-(--color-box-background) border-(--color-box-border) border-2
+            shadow-[0_0_20px_var(--color-box-background-shadow)] 
+            pointer-events-auto"
         >
           <h1
             aria-hidden="true"
@@ -119,15 +120,15 @@ export default function GridBackground() {
           shadow-[0_0_20px_var(--color-box-background-shadow)] 
           pointer-events-auto"
         >
-          <div className="flex flex-col text-4xl space-y-8">
+          <div className="flex flex-col text-4xl space-y-8 font-sans">
 
             {/* email information */}
             <div className="flex flex-row items-center gap-6">
               <div className="w-16 flex justify-center shrink-0">
                 <Image
                   src={'/WhiteMailIcon.png'}
-                  width={60}
-                  height={60}
+                  width={58}
+                  height={58}
                   alt="Mail Icon"
                   className="select-none"
                 />
@@ -136,7 +137,7 @@ export default function GridBackground() {
                 className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
                 href="mailto:aiden.henderson.c@gmail.com"
                 target="_blank"
-                onMouseEnter={() => handleEnterHoverText("Feel free to reach out regarding my resume, projects, or just to say hi. I'm always open for a chat!")}
+                onMouseEnter={() => handleEnterHoverText("Feel free to reach out regarding my resume, projects, or just to say hi! I'm always open for a chat!")}
                 onMouseLeave={handleExitHoverText}
               >
                 aiden.henderson.c@gmail.com
@@ -170,8 +171,8 @@ export default function GridBackground() {
               <div className="w-16 flex justify-center shrink-0">
                 <Image
                   src={'/GitHubLogo.png'}
-                  width={64}
-                  height={64}
+                  width={54}
+                  height={54}
                   alt="GitHub Logo"
                   className="select-none"
                 />
@@ -198,17 +199,40 @@ export default function GridBackground() {
           }}
         >
           <div className="
-          relative inline-block p-5 w-59
+          relative inline-block p-5 w-52
           bg-(--color-box-background) border-(--color-box-border) border-2
           shadow-[0_0_20px_var(--color-box-background-shadow)] 
-          pointer-events-auto
+          pointer-events-auto select-none
           whitespace-normal"
           >
             <p
-              className="text-[#FFFFFF] text-1xl"
+              className="text-[#FFFFFF] text-1xl font-sans"
             >
               {hoverInformation.text}
             </p>
+          </div>
+        </div>
+
+        {/* container for more information about me */}
+        <div className="relative z-10 py-20">
+          <div className="
+          relative inline-block p-10
+          bg-(--color-box-background) border-(--color-box-border) border-2
+          shadow-[0_0_20px_var(--color-box-background-shadow)] 
+          pointer-events-auto"
+          >
+            <div className="flex flex-row">
+              {/* buttons to load each preview */}
+              <button className="info-button">
+                Quick Facts
+              </button>
+              {/* the previews of information */}
+              <div className="">
+                <div>
+
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,13 @@
+.info-button {
+    background-color: var(--color-box-background);
+    border: 2px;
+    border-color: var(--color-grid-blue);
+    clip-path: polygon(
+        10% 0%, 
+        0% 30%,
+        0% 100%,
+        90% 100%,
+        100% 70%,
+        100% 0%
+    );
+}

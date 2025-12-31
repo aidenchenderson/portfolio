@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     title: "Aiden Henderson",
     description: "CS Student & Software Developer",
     url: "https://ahenderson.dev",
-    siteName: "Aiden Henderson's Dev Portfolio",
+    siteName: "Aiden Henderson's Personal Developer Portfolio",
     images: [
       {
-        url: "/og-image.png", // TODO: get image path for thumbnail
+        url: "/OpenGraphImage.png",
         width: 1200,
         height: 630,
       },
