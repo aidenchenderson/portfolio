@@ -7,10 +7,14 @@
   --color-grid-blue: #4DABF7;
   --color-grid-pink: #F783AC;
   --color-grid-yellow: #FFFB82;
+  
+  --color-grid-meltdown: #FF003C;
 
   --color-box-background: #050a10;
   --color-box-border: #1e293b;
   --color-box-background-shadow: #000000e6;
+
+  --color-button-transparency: #141419cc;
 }
 
 @theme inline {

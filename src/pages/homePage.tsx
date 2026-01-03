@@ -103,8 +103,10 @@ export default function HomePage() {
             <span className="absolute top-[-2] left-0 -ml-px text-(--color-grid-blue) opacity-75 z-0">AHENDERSON.DEV</span>
             <span className="absolute top-[2] left-0 ml-px text-(--color-grid-pink) opacity-75 z-0">AHENDERSON.DEV</span>
           </h1>
-          <p className="font-sans text-[2.29rem] font-bold select-none text-[#FFFFFF]">
-            Computer Science Student & Software Developer
+          <p aria-hidden="true" className="relative font-sans text-[2.29rem] font-bold select-none text-[#FFFFFF]">
+            <span className="relative z-10 text-[#FFFFFF]">Computer Science Student & Software Developer</span>
+            <span className="absolute top-[-1] left-0 -ml-px text-(--color-grid-blue) opacity-75 z-0">Computer Science Student & Software Developer</span>
+            <span className="absolute top-[2] left-0 ml-px text-(--color-grid-pink) opacity-75 z-0">Computer Science Student & Software Developer</span>
           </p>
           <p className="font-sans text-(--color-grid-blue) mt-10 uppercase tracking-widest text-sm select-none">
             System Status: <span className="animate-pulse">Active</span>
@@ -214,18 +216,34 @@ export default function HomePage() {
         </div>
 
         {/* container for more information about me */}
-        <div className="relative z-10 py-20">
+        <div className="relative z-10 px-10 py-32">
           <div className="
           relative inline-block p-10
           bg-(--color-box-background) border-(--color-box-border) border-2
           shadow-[0_0_20px_var(--color-box-background-shadow)] 
           pointer-events-auto"
           >
+            
             <div className="flex flex-row">
               {/* buttons to load each preview */}
-              <button className="info-button">
-                Quick Facts
-              </button>
+              <div className="flex flex-col gap-2">
+                <div className="cursor-pointer info-button-wrapper">
+                  <button className="info-button px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full">
+                    Quick Facts
+                  </button>
+                </div>
+                <div className="cursor-pointer info-button-wrapper-yellow">
+                  <button className="info-button-yellow px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full">
+                    Projects
+                  </button>
+                </div>
+                <div className="cursor-pointer info-button-wrapper-red">
+                  <button className="info-button-red px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full">
+                    ???
+                  </button>
+                </div>
+              </div>
+              
               {/* the previews of information */}
               <div className="">
                 <div>

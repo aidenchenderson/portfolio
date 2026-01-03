@@ -1,13 +1,84 @@
-.info-button {
-    background-color: var(--color-box-background);
-    border: 2px;
-    border-color: var(--color-grid-blue);
-    clip-path: polygon(
-        10% 0%, 
-        0% 30%,
-        0% 100%,
-        90% 100%,
-        100% 70%,
-        100% 0%
-    );
+/* styles for the 'quick facts' button */
+.info-button-wrapper {
+  --current-color: var(--color-grid-blue);  
+  
+  background-color: var(--current-color);
+  padding: 2px;
+  clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);
+  
+  transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+.info-button { 
+  clip-path: inherit;
+
+  background-color: var(--color-button-transparency); 
+  border: none;
+  padding: 10px 25px;
+  display: block;
+  
+  color: var(--current-color);
+  transition: color 0.3s ease;
+}
+
+.info-button-wrapper:hover {
+  --current-color: var(--color-grid-pink);
+}
+
+
+
+/* styles for the 'projects' button */
+.info-button-wrapper-yellow {
+  --current-color: var(--color-grid-blue);  
+  
+  background-color: var(--current-color);
+  padding: 2px;
+  clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);
+  
+  transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+.info-button-yellow { 
+  clip-path: inherit;
+
+  background-color: var(--color-button-transparency); 
+  border: none;
+  padding: 10px 25px;
+  display: block;
+  
+  color: var(--current-color);
+  transition: color 0.3s ease;
+}
+
+.info-button-wrapper-yellow:hover {
+  --current-color: var(--color-grid-yellow);
+}
+
+
+
+/* styles for the secret '???' button */
+.info-button-wrapper-red {
+  --current-color: var(--color-grid-blue);  
+  
+  background-color: var(--current-color);
+  padding: 2px;
+  clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);
+  
+  transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+.info-button-red { 
+  clip-path: inherit;
+
+  background-color: var(--color-button-transparency); 
+  border: none;
+  padding: 10px 25px;
+  display: block;
+  
+  color: var(--current-color);
+  transition: color 0.3s ease;
+}
+
+.info-button-wrapper-red:hover {
+  --current-color: var(--color-grid-meltdown);
 }
