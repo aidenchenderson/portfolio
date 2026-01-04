@@ -6,13 +6,18 @@
 
   --color-grid-blue: #4DABF7;
   --color-grid-pink: #F783AC;
+  --color-grid-orange: #FF8C00;
   --color-grid-yellow: #FFFB82;
-  
-  --color-grid-meltdown: #FF003C;
 
   --color-box-background: #050a10;
   --color-box-border: #1e293b;
   --color-box-background-shadow: #000000e6;
+
+  --color-grid-meltdown: #FF003C;
+
+  --color-box-background-meltdown: #1a0c10;
+  --color-box-border-meltdown: #600e14;
+  --color-box-background-shadow-meltdown: #000000e6;
 
   --color-button-transparency: #141419cc;
 }
@@ -58,3 +63,9 @@ body {
     transition-delay: 0s !important;
   }
 }
+
+.pulse-slow {
+
+}
+
+/* screens smaller than 1700 x 950 will have be resizable and reactive, but will not have the same experience as a full desktop/laptop */

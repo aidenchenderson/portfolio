@@ -6,12 +6,19 @@ import "../styles/homePage.css";
 interface MousePosition {
   x: number;
   y: number;
-}
+};
 
 interface HoverInformation {
   text: string;
   visible: boolean;
-}
+};
+
+enum InformationDescriptionState {
+  Empty = 1,
+  QuickFacts,
+  Projects,
+  Secret
+};
 
 export default function HomePage() {
   // initialize mouse position to (0, 0) on component render
@@ -53,8 +60,58 @@ export default function HomePage() {
 
   const handleExitHoverText = () => {
     setHoverInformation(prev => ({ ...prev, visible: false }));
-  }
+  };
 
+  // state to control active system status vs critical system status
+  const [systemStatusOnline, setSystemStatusOnline] = useState(() => { return true; });
+
+  const handleSystemStatusChange = () => {
+    setSystemStatusOnline(prev => !prev);
+  };
+
+  // static grid background color
+  const staticGridBackgroundColor = systemStatusOnline
+    ? 'bg-[linear-gradient(to_right,#4dabf7_3px,transparent_3px),linear-gradient(to_bottom,#4dabf7_3px,transparent_3px)]'
+    : 'bg-[linear-gradient(to_right,#ff003c_3px,transparent_3px),linear-gradient(to_bottom,#ff003c_3px,transparent_3px)]';
+
+  const staticGridDropshadowColor = systemStatusOnline
+    ? 'drop-shadow-[0_0_10px_#4dabf7]'
+    : 'drop-shadow-[0_0_10px_#ff003c]';
+
+  // system status message
+  const gridBoxColor = systemStatusOnline
+    ? 'bg-(--color-box-background) border-(--color-box-border) shadow-[0_0_20px_var(--color-box-background-shadow)]'
+    : 'bg-(--color-box-background-meltdown) border-(--color-box-border-meltdown) shadow-[0_0_20px_var(--color-box-background-shadow-meltdown)]';
+
+  // masked grid background color
+  const maskedGridBackgroundColor = systemStatusOnline
+    ? 'bg-[linear-gradient(to_right,#f783ac_3px,transparent_3px),linear-gradient(to_bottom,#f783ac_3px,transparent_3px)]'
+    : 'bg-[linear-gradient(to_right,#ff8c00_3px,transparent_3px),linear-gradient(to_bottom,#ff8c00_3px,transparent_3px)]';
+
+  // masked grid dropshadow color
+  const maskedGridDropshadowColor = systemStatusOnline
+    ? 'drop-shadow-[0_0_10px_#f783ac]'
+    : 'drop-shadow-[0_0_10px_#ff8c00]';
+
+  // shows the text in the 'info vault' related to the last button pressed
+  const [informationDescription, setInformationDescription] = useState(() => {
+    let startingDescription: string = 'Select an option on the left, and the related information will appear here';
+    return startingDescription;
+  });
+
+  const handleInformationDescriptionChange = (state: InformationDescriptionState) => {
+    if (state == InformationDescriptionState.QuickFacts) {
+      let newDescription: string = '';
+      setInformationDescription(newDescription);
+    } else if (state == InformationDescriptionState.Projects) {
+
+    } else if (state == InformationDescriptionState.Secret) {
+
+    } else {
+
+    }
+  };
+    
   return (
     <div
       onMouseMove={handleMousePositionChange}
@@ -62,22 +119,22 @@ export default function HomePage() {
     >
 
       {/* static grid background */}
-      <div className="
-        absolute inset-0 z-0 filter
-        bg-[linear-gradient(to_right,#4dabf7_3px,transparent_3px),linear-gradient(to_bottom,#4dabf7_3px,transparent_3px)]
-        bg-size-[58px_58px]
-        bg-position-[-29px_-29px]
-        drop-shadow-[0_0_10px_#4dabf7]"
-      />
-
-      {/* masked grid for interactive mouse move */}
       <div
-        className="
-          absolute inset-0 z-0 transition-opacity duration-300
-          bg-[linear-gradient(to_right,#f783ac_3px,transparent_3px),linear-gradient(to_bottom,#f783ac_3px,transparent_3px)]
+        className={`
+          absolute inset-0 z-0 filter
           bg-size-[58px_58px]
           bg-position-[-29px_-29px]
-          drop-shadow-[0_0_10px_#f783ac]"
+          ${staticGridBackgroundColor}
+          ${staticGridDropshadowColor}
+        `}
+      />
+
+      {/* masked grid for interactive mouse move (flashlight effect) */}
+      <div
+        className={`absolute inset-0 z-0 transition-opacity duration-300 bg-size-[58px_58px] bg-position-[-29px_-29px] 
+          ${maskedGridBackgroundColor}
+          ${maskedGridDropshadowColor}
+        `}
         style={{
           opacity: mouseIsMoving ? 1 : 0,
           WebkitMaskImage: `radial-gradient(circle 200px at ${mousePosition.x}px ${mousePosition.y}px, black 20%, transparent 100%)`,
@@ -89,38 +146,55 @@ export default function HomePage() {
       {/* container for website header */}
       <div className="relative z-10 p-10 pointer-events-none">
         <div
-          className="
+          className={`
             relative inline-block p-10
-            bg-(--color-box-background) border-(--color-box-border) border-2
-            shadow-[0_0_20px_var(--color-box-background-shadow)] 
-            pointer-events-auto"
+            border-2
+            pointer-events-auto
+            ${gridBoxColor}
+          `}
         >
           <h1
             aria-hidden="true"
             className="text-8xl font-bold font-sans select-none relative"
           >
             <span className="relative z-10 text-[#FFFFFF]">AHENDERSON.DEV</span>
-            <span className="absolute top-[-2] left-0 -ml-px text-(--color-grid-blue) opacity-75 z-0">AHENDERSON.DEV</span>
+            <span className={`
+              absolute top-[-1] left-0 -ml-px 
+              ${systemStatusOnline ? 'text-(--color-grid-blue)' : 'text-(--color-grid-meltdown)'} 
+              opacity-75 z-0`
+            }>
+              AHENDERSON.DEV
+            </span>
             <span className="absolute top-[2] left-0 ml-px text-(--color-grid-pink) opacity-75 z-0">AHENDERSON.DEV</span>
           </h1>
           <p aria-hidden="true" className="relative font-sans text-[2.29rem] font-bold select-none text-[#FFFFFF]">
             <span className="relative z-10 text-[#FFFFFF]">Computer Science Student & Software Developer</span>
-            <span className="absolute top-[-1] left-0 -ml-px text-(--color-grid-blue) opacity-75 z-0">Computer Science Student & Software Developer</span>
+            <span className={`
+              absolute top-[-1] left-0 -ml-px 
+              ${systemStatusOnline ? 'text-(--color-grid-blue)' : 'text-(--color-grid-meltdown)'} 
+              opacity-75 z-0`
+            }>
+              Computer Science Student & Software Developer
+            </span>
             <span className="absolute top-[2] left-0 ml-px text-(--color-grid-pink) opacity-75 z-0">Computer Science Student & Software Developer</span>
           </p>
-          <p className="font-sans text-(--color-grid-blue) mt-10 uppercase tracking-widest text-sm select-none">
-            System Status: <span className="animate-pulse">Active</span>
+          <p className={`
+            font-sans mt-10 uppercase tracking-widest text-sm select-none
+            ${systemStatusOnline ? 'text-(--color-grid-blue)' : 'text-(--color-grid-meltdown)'}`
+          }>
+            System Status: <span className="animate-pulse">{systemStatusOnline ? 'Online' : 'Critical'}</span>
           </p>
         </div>
       </div>
 
       {/* container for personal links */}
       <div className="relative z-10 px-10 pointer-events-none whitespace-nowrap flex flex-row items-start gap-10">
-        <div className="
-          relative inline-block p-10
-          bg-(--color-box-background) border-(--color-box-border) border-2
-          shadow-[0_0_20px_var(--color-box-background-shadow)] 
-          pointer-events-auto"
+        <div className={`
+            relative inline-block p-10
+            border-2
+            pointer-events-auto
+            ${gridBoxColor}
+          `}
         >
           <div className="flex flex-col text-4xl space-y-8 font-sans">
 
@@ -136,7 +210,7 @@ export default function HomePage() {
                 />
               </div>
               <a
-                className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
+                className={`${systemStatusOnline ? 'hover:text-(--color-grid-blue)' : 'hover:text-(--color-grid-meltdown)'} cursor-pointer transition-colors`}
                 href="mailto:aiden.henderson.c@gmail.com"
                 target="_blank"
                 onMouseEnter={() => handleEnterHoverText("Feel free to reach out regarding my resume, projects, or just to say hi! I'm always open for a chat!")}
@@ -158,7 +232,7 @@ export default function HomePage() {
                 />
               </div>
               <a
-                className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
+                className={`${systemStatusOnline ? 'hover:text-(--color-grid-blue)' : 'hover:text-(--color-grid-meltdown)'} cursor-pointer transition-colors`}
                 href="https://linkedin.com/in/aidenchenderson"
                 target="_blank"
                 onMouseEnter={() => handleEnterHoverText("Check out my LinkedIn to explore my professional experience, skills, and academic journey.")}
@@ -180,7 +254,7 @@ export default function HomePage() {
                 />
               </div>
               <a
-                className="cursor-pointer hover:text-(--color-grid-blue) transition-colors"
+                className={`${systemStatusOnline ? 'hover:text-(--color-grid-blue)' : 'hover:text-(--color-grid-meltdown)'} cursor-pointer transition-colors`}
                 href="https://github.com/aidenchenderson"
                 target="_blank"
                 onMouseEnter={() => handleEnterHoverText("Explore my GitHub to see the architecture, code, and ideas behind my projects.")}
@@ -200,12 +274,12 @@ export default function HomePage() {
             opacity: hoverInformation.visible ? 1 : 0
           }}
         >
-          <div className="
-          relative inline-block p-5 w-52
-          bg-(--color-box-background) border-(--color-box-border) border-2
-          shadow-[0_0_20px_var(--color-box-background-shadow)] 
-          pointer-events-auto select-none
-          whitespace-normal"
+          <div className={`
+            relative inline-block p-5 w-52
+            pointer-events-auto select-none
+            whitespace-normal border-2
+            ${gridBoxColor}
+          `}
           >
             <p
               className="text-[#FFFFFF] text-1xl font-sans"
@@ -216,40 +290,56 @@ export default function HomePage() {
         </div>
 
         {/* container for more information about me */}
-        <div className="relative z-10 px-10 py-32">
-          <div className="
-          relative inline-block p-10
-          bg-(--color-box-background) border-(--color-box-border) border-2
-          shadow-[0_0_20px_var(--color-box-background-shadow)] 
-          pointer-events-auto"
+        <div className="relative z-10 px-12 py-20">
+          <div className={`
+            relative inline-block p-5
+            border-2
+            pointer-events-auto
+            ${gridBoxColor}
+          `}
           >
-            
-            <div className="flex flex-row">
-              {/* buttons to load each preview */}
-              <div className="flex flex-col gap-2">
-                <div className="cursor-pointer info-button-wrapper">
-                  <button className="info-button px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full">
-                    Quick Facts
-                  </button>
-                </div>
-                <div className="cursor-pointer info-button-wrapper-yellow">
-                  <button className="info-button-yellow px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full">
-                    Projects
-                  </button>
-                </div>
-                <div className="cursor-pointer info-button-wrapper-red">
-                  <button className="info-button-red px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full">
-                    ???
-                  </button>
-                </div>
-              </div>
-              
-              {/* the previews of information */}
-              <div className="">
-                <div>
+            <div className="flex flex-col items-center">
 
+              {/* section title */}
+              <div className="font-sans font-bold text-3xl mb-4">
+                <p>Info Vault </p>
+              </div>
+
+              <div className="flex flex-row gap-5">
+                {/* buttons to load each preview */}
+                <div className="flex flex-col gap-2">
+                  <div className={`${systemStatusOnline ? 'info-button-wrapper' : 'info-button-wrapper-meltdown'} cursor-pointer p-0.5`}>
+                    <button className="info-button px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full border-none">
+                      Quick Facts
+                    </button>
+                  </div>
+                  <div className={`${systemStatusOnline ? 'info-button-wrapper-yellow' : 'info-button-wrapper-yellow-meltdown'} cursor-pointer p-0.5`}>
+                    <button className="info-button-yellow px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full border-none">
+                      Projects
+                    </button>
+                  </div>
+                  <div className={`${systemStatusOnline ? 'info-button-wrapper-red' : 'info-button-wrapper-red-meltdown'} cursor-pointer p-0.5`}>
+                    <button
+                      className="info-button-red px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full border-none"
+                      onClick={handleSystemStatusChange}
+                    >
+                      ???
+                    </button>
+                  </div>
+                </div>
+
+                {/* the previews of information */}
+                <div className={`
+                  relative inline-block w-87.5 h-69 border-2
+                  ${gridBoxColor}
+                `}
+                >
+                  <div className="font-sans text-xl text-wrap items-center justify-center text-center px-10 content-center">
+                    <p>{informationDescription}</p>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -258,4 +348,4 @@ export default function HomePage() {
 
     </div>
   );
-}
+};

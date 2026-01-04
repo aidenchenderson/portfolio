@@ -1,28 +1,33 @@
 /* styles for the 'quick facts' button */
 .info-button-wrapper {
   --current-color: var(--color-grid-blue);  
-  
   background-color: var(--current-color);
-  padding: 2px;
   clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);
-  
   transition: background-color 0.3s ease, filter 0.3s ease;
-}
-
-.info-button { 
-  clip-path: inherit;
-
-  background-color: var(--color-button-transparency); 
-  border: none;
-  padding: 10px 25px;
-  display: block;
-  
-  color: var(--current-color);
-  transition: color 0.3s ease;
 }
 
 .info-button-wrapper:hover {
   --current-color: var(--color-grid-pink);
+}
+
+.info-button-wrapper-meltdown {
+  --current-color: var(--color-grid-meltdown);  
+  background-color: var(--current-color);
+  clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);
+  transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+.info-button-wrapper-meltdown:hover {
+  --current-color: var(--color-grid-pink);
+}
+
+.info-button { 
+  clip-path: inherit;
+  background-color: var(--color-button-transparency); 
+  padding: 10px 25px;
+  display: block;
+  color: var(--current-color);
+  transition: color 0.3s ease;
 }
 
 
@@ -30,28 +35,33 @@
 /* styles for the 'projects' button */
 .info-button-wrapper-yellow {
   --current-color: var(--color-grid-blue);  
-  
   background-color: var(--current-color);
-  padding: 2px;
-  clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);
-  
+  clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);  
   transition: background-color 0.3s ease, filter 0.3s ease;
-}
-
-.info-button-yellow { 
-  clip-path: inherit;
-
-  background-color: var(--color-button-transparency); 
-  border: none;
-  padding: 10px 25px;
-  display: block;
-  
-  color: var(--current-color);
-  transition: color 0.3s ease;
 }
 
 .info-button-wrapper-yellow:hover {
   --current-color: var(--color-grid-yellow);
+}
+
+.info-button-wrapper-yellow-meltdown {
+  --current-color: var(--color-grid-meltdown);  
+  background-color: var(--current-color);
+  clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);  
+  transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+.info-button-wrapper-yellow-meltdown:hover {
+  --current-color: var(--color-grid-yellow);
+}
+
+.info-button-yellow { 
+  clip-path: inherit;
+  background-color: var(--color-button-transparency); 
+  padding: 10px 25px;
+  display: block;
+  color: var(--current-color);
+  transition: color 0.3s ease;
 }
 
 
@@ -61,24 +71,35 @@
   --current-color: var(--color-grid-blue);  
   
   background-color: var(--current-color);
-  padding: 2px;
   clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);
   
   transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+.info-button-wrapper-red:hover {
+  --current-color: var(--color-grid-meltdown);
+}
+
+.info-button-wrapper-red-meltdown {
+  --current-color: var(--color-grid-meltdown);  
+  
+  background-color: var(--current-color);
+  clip-path: polygon(0% 0%, 0% 70%, 10% 100%, 100% 100%, 100% 30%, 90% 0%);
+  
+  transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+.info-button-wrapper-red-meltdown:hover {
+  --current-color: var(--color-grid-blue);
 }
 
 .info-button-red { 
   clip-path: inherit;
 
   background-color: var(--color-button-transparency); 
-  border: none;
   padding: 10px 25px;
   display: block;
   
   color: var(--current-color);
   transition: color 0.3s ease;
-}
-
-.info-button-wrapper-red:hover {
-  --current-color: var(--color-grid-meltdown);
 }
