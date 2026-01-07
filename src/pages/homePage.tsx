@@ -67,16 +67,8 @@ export default function HomePage() {
 
   const handleSystemStatusChange = () => {
     setSystemStatusOnline(prev => !prev);
+    handleInformationDescriptionChange(InformationDescriptionState.Secret);
   };
-
-  // static grid background color
-  const staticGridBackgroundColor = systemStatusOnline
-    ? 'bg-[linear-gradient(to_right,#4dabf7_3px,transparent_3px),linear-gradient(to_bottom,#4dabf7_3px,transparent_3px)]'
-    : 'bg-[linear-gradient(to_right,#ff003c_3px,transparent_3px),linear-gradient(to_bottom,#ff003c_3px,transparent_3px)]';
-
-  const staticGridDropshadowColor = systemStatusOnline
-    ? 'drop-shadow-[0_0_10px_#4dabf7]'
-    : 'drop-shadow-[0_0_10px_#ff003c]';
 
   // system status message
   const gridBoxColor = systemStatusOnline
@@ -99,19 +91,35 @@ export default function HomePage() {
     return startingDescription;
   });
 
+  // TODO:
+  // Finish animations for the buttons: 
+  //  - white on clicked
+
+  // Modularize the current codebase
+
+  // fix the size for pages that would appear on a 1920 x 1080 monitor
+  // Create dynamic scaling app for screens smaller than 1700 x 950
+
   const handleInformationDescriptionChange = (state: InformationDescriptionState) => {
+    let newDescription: string = '';
     if (state == InformationDescriptionState.QuickFacts) {
-      let newDescription: string = '';
-      setInformationDescription(newDescription);
+      newDescription = `At university I've gained over 20 months of team club experience 
+                        through notable roles such as project lead at the McMaster AI Society, 
+                        open-source developer at the McMaster Google Developer Group,
+                        and mentor at Delta Hacks 2026.`;
     } else if (state == InformationDescriptionState.Projects) {
-
+      newDescription = `Check out my GitHub to see projects I've worked on and am currently working on. 
+                        Each repository will feature videos and pictures that go in-depth and explain my 
+                        thought process behind the project. `; // eventually prompt user to go to projects page but currently just to check out repos
     } else if (state == InformationDescriptionState.Secret) {
-
+      newDescription = `Thanks for taking the time to visit my website! Feel free to reach 
+                        out to collaborate with me on any future projects.`;
     } else {
-
+      newDescription = ''; // this case is a backup, but shouldn't be able to be executed based on the current way the website is set up
     }
+    setInformationDescription(newDescription);
   };
-    
+
   return (
     <div
       onMouseMove={handleMousePositionChange}
@@ -119,15 +127,10 @@ export default function HomePage() {
     >
 
       {/* static grid background */}
-      <div
-        className={`
-          absolute inset-0 z-0 filter
-          bg-size-[58px_58px]
-          bg-position-[-29px_-29px]
-          ${staticGridBackgroundColor}
-          ${staticGridDropshadowColor}
-        `}
-      />
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className={`background-layer grid-blue ${systemStatusOnline ? 'opacity-100' : 'opacity-0'}`} />
+        <div className={`background-layer grid-red ${!systemStatusOnline ? 'opacity-100' : 'opacity-0'}`} />
+      </div>
 
       {/* masked grid for interactive mouse move (flashlight effect) */}
       <div
@@ -148,14 +151,14 @@ export default function HomePage() {
         <div
           className={`
             relative inline-block p-10
-            border-2
+            border-2 transition-all duration-700 ease-in-out
             pointer-events-auto
             ${gridBoxColor}
           `}
         >
           <h1
             aria-hidden="true"
-            className="text-8xl font-bold font-sans select-none relative"
+            className="text-7xl font-bold font-sans select-none relative"
           >
             <span className="relative z-10 text-[#FFFFFF]">AHENDERSON.DEV</span>
             <span className={`
@@ -167,7 +170,7 @@ export default function HomePage() {
             </span>
             <span className="absolute top-[2] left-0 ml-px text-(--color-grid-pink) opacity-75 z-0">AHENDERSON.DEV</span>
           </h1>
-          <p aria-hidden="true" className="relative font-sans text-[2.29rem] font-bold select-none text-[#FFFFFF]">
+          <p aria-hidden="true" className="relative font-sans text-[1.7rem] font-bold select-none text-[#FFFFFF]">
             <span className="relative z-10 text-[#FFFFFF]">Computer Science Student & Software Developer</span>
             <span className={`
               absolute top-[-1] left-0 -ml-px 
@@ -191,16 +194,16 @@ export default function HomePage() {
       <div className="relative z-10 px-10 pointer-events-none whitespace-nowrap flex flex-row items-start gap-10">
         <div className={`
             relative inline-block p-10
-            border-2
+            border-2 transition-all duration-700 ease-in-out
             pointer-events-auto
             ${gridBoxColor}
           `}
         >
-          <div className="flex flex-col text-4xl space-y-8 font-sans">
+          <div className="flex flex-col text-2xl space-y-8 font-sans">
 
             {/* email information */}
             <div className="flex flex-row items-center gap-6">
-              <div className="w-16 flex justify-center shrink-0">
+              <div className="w-12 flex justify-center shrink-0">
                 <Image
                   src={'/WhiteMailIcon.png'}
                   width={58}
@@ -222,7 +225,7 @@ export default function HomePage() {
 
             {/* linkedin information */}
             <div className="flex flex-row items-center gap-6">
-              <div className="w-16 flex justify-center shrink-0">
+              <div className="w-12 flex justify-center shrink-0">
                 <Image
                   src={'/LinkedInLogo.png'}
                   width={50}
@@ -244,7 +247,7 @@ export default function HomePage() {
 
             {/* github information */}
             <div className="flex flex-row items-center gap-6">
-              <div className="w-16 flex justify-center shrink-0">
+              <div className="w-12 flex justify-center shrink-0">
                 <Image
                   src={'/GitHubLogo.png'}
                   width={54}
@@ -275,8 +278,9 @@ export default function HomePage() {
           }}
         >
           <div className={`
-            relative inline-block p-5 w-52
+            relative inline-block p-5 w-46 
             pointer-events-auto select-none
+            transition-all duration-700 ease-in-out
             whitespace-normal border-2
             ${gridBoxColor}
           `}
@@ -290,10 +294,10 @@ export default function HomePage() {
         </div>
 
         {/* container for more information about me */}
-        <div className="relative z-10 px-12 py-20">
+        <div className="relative z-10 px-10 py-13">
           <div className={`
             relative inline-block p-5
-            border-2
+            border-2 transition-all duration-700 ease-in-out
             pointer-events-auto
             ${gridBoxColor}
           `}
@@ -309,12 +313,18 @@ export default function HomePage() {
                 {/* buttons to load each preview */}
                 <div className="flex flex-col gap-2">
                   <div className={`${systemStatusOnline ? 'info-button-wrapper' : 'info-button-wrapper-meltdown'} cursor-pointer p-0.5`}>
-                    <button className="info-button px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full border-none">
+                    <button
+                      className="info-button px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full border-none"
+                      onClick={() => { handleInformationDescriptionChange(InformationDescriptionState.QuickFacts) }}
+                    >
                       Quick Facts
                     </button>
                   </div>
                   <div className={`${systemStatusOnline ? 'info-button-wrapper-yellow' : 'info-button-wrapper-yellow-meltdown'} cursor-pointer p-0.5`}>
-                    <button className="info-button-yellow px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full border-none">
+                    <button
+                      className="info-button-yellow px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full border-none"
+                      onClick={() => { handleInformationDescriptionChange(InformationDescriptionState.Projects) }}
+                    >
                       Projects
                     </button>
                   </div>
@@ -330,11 +340,12 @@ export default function HomePage() {
 
                 {/* the previews of information */}
                 <div className={`
-                  relative inline-block w-87.5 h-69 border-2
+                  relative w-87.5 h-60 border-2 flex
+                  transition-all duration-700 ease-in-out
                   ${gridBoxColor}
                 `}
                 >
-                  <div className="font-sans text-xl text-wrap items-center justify-center text-center px-10 content-center">
+                  <div className="font-sans text-xl text-wrap items-center justify-center text-left px-5 content-center">
                     <p>{informationDescription}</p>
                   </div>
                 </div>
