@@ -112,7 +112,7 @@
   inset: 0;
   background-size: 58px 58px;
   background-position: -29px -29px;
-  transition: opacity 1s ease-in-out; /* This controls the fade speed */
+  transition: opacity 1s ease-in-out;
 }
 
 .grid-blue {

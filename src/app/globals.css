@@ -4,22 +4,26 @@
   --background: #000817;
   --foreground: #FFFFFF;
 
+  /* desktop grid colors */
   --color-grid-blue: #4DABF7;
   --color-grid-pink: #F783AC;
   --color-grid-orange: #FF8C00;
   --color-grid-yellow: #FFFB82;
 
-  --color-box-background: #050a10;
-  --color-box-border: #1e293b;
-  --color-box-background-shadow: #000000e6;
+  --color-box-background: #050A10;
+  --color-box-border: #1E293B;
+  --color-box-background-shadow: #000000E6;
 
   --color-grid-meltdown: #FF003C;
 
-  --color-box-background-meltdown: #1a0c10;
-  --color-box-border-meltdown: #600e14;
-  --color-box-background-shadow-meltdown: #000000e6;
+  --color-box-background-meltdown: #1A0C10;
+  --color-box-border-meltdown: #600E14;
+  --color-box-background-shadow-meltdown: #000000E6;
 
-  --color-button-transparency: #141419cc;
+  --color-button-transparency: #141419CC;
+
+  /* specific mobile grid colors */
+  --color-grid-green: #32D74B;
 }
 
 @theme inline {
