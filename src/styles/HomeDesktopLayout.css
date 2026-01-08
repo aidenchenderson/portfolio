@@ -104,6 +104,8 @@
   transition: color 0.3s ease;
 }
 
+
+
 /* background properties */
 .background-layer {
   position: absolute;
@@ -114,13 +116,20 @@
 }
 
 .grid-blue {
-  background-image: linear-gradient(to right, #4dabf7 3px, transparent 3px),
-                    linear-gradient(to bottom, #4dabf7 3px, transparent 3px);
-  filter: drop-shadow(0 0 10px #4dabf7);
+  background-image: linear-gradient(to right, var(--color-grid-blue) 3px, transparent 3px),
+                    linear-gradient(to bottom, var(--color-grid-blue)  3px, transparent 3px);
+  filter: drop-shadow(0 0 10px var(--color-grid-blue) );
 }
 
 .grid-red {
-  background-image: linear-gradient(to right, #ff003c 3px, transparent 3px),
-                    linear-gradient(to bottom, #ff003c 3px, transparent 3px);
-  filter: drop-shadow(0 0 10px #ff003c);
+  background-image: linear-gradient(to right, var(--color-grid-meltdown) 3px, transparent 3px),
+                    linear-gradient(to bottom, var(--color-grid-meltdown) 3px, transparent 3px);
+  filter: drop-shadow(0 0 10px var(--color-grid-meltdown));
+}
+
+
+
+/* text properties */
+.text-layer {
+  transition: opacity 0.3s ease-in-out;
 }

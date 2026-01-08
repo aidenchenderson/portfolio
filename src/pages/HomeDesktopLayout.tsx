@@ -1,7 +1,7 @@
 'use client';
 import { useState, MouseEvent, useRef } from "react";
 import Image from "next/image";
-import "../styles/homePage.css";
+import "../styles/HomeDesktopLayout.css";
 
 interface MousePosition {
   x: number;
@@ -13,14 +13,7 @@ interface HoverInformation {
   visible: boolean;
 };
 
-enum InformationDescriptionState {
-  Empty = 1,
-  QuickFacts,
-  Projects,
-  Secret
-};
-
-export default function HomePage() {
+export default function HomeDesktopLayout() {
   // initialize mouse position to (0, 0) on component render
   const [mousePosition, setMousePosition] = useState<MousePosition>(() => { return { x: 0, y: 0 } });
 
@@ -67,7 +60,7 @@ export default function HomePage() {
 
   const handleSystemStatusChange = () => {
     setSystemStatusOnline(prev => !prev);
-    handleInformationDescriptionChange(InformationDescriptionState.Secret);
+    handleVisibleInformationDescriptionChange(3);
   };
 
   // system status message
@@ -85,39 +78,25 @@ export default function HomePage() {
     ? 'drop-shadow-[0_0_10px_#f783ac]'
     : 'drop-shadow-[0_0_10px_#ff8c00]';
 
-  // shows the text in the 'info vault' related to the last button pressed
-  const [informationDescription, setInformationDescription] = useState(() => {
-    let startingDescription: string = 'Select an option on the left, and the related information will appear here';
-    return startingDescription;
+  const informationDescriptionOptions: string[] = [
+    `Select an option on the left, and the related information will appear here.`,
+    `At university I've gained over 20 months of team club experience 
+      through notable roles such as project lead at the McMaster AI Society, 
+      open-source developer at the McMaster Google Developer Group,
+      and mentor at Delta Hacks 2026.`,
+    `Check out my GitHub to see projects I've worked on and am currently working on. 
+      Each repository will feature videos and pictures that go in-depth and explain my 
+      thought process behind the project.`,
+    `Thanks for taking the time to visit my website! Feel free to reach 
+      out to collaborate with me on any future projects.`,
+  ];
+
+  const [visibleInformationDescription, setVisibleInformationDescription] = useState(() => {
+    return 0;
   });
 
-  // TODO:
-  // Finish animations for the buttons: 
-  //  - white on clicked
-
-  // Modularize the current codebase
-
-  // fix the size for pages that would appear on a 1920 x 1080 monitor
-  // Create dynamic scaling app for screens smaller than 1700 x 950
-
-  const handleInformationDescriptionChange = (state: InformationDescriptionState) => {
-    let newDescription: string = '';
-    if (state == InformationDescriptionState.QuickFacts) {
-      newDescription = `At university I've gained over 20 months of team club experience 
-                        through notable roles such as project lead at the McMaster AI Society, 
-                        open-source developer at the McMaster Google Developer Group,
-                        and mentor at Delta Hacks 2026.`;
-    } else if (state == InformationDescriptionState.Projects) {
-      newDescription = `Check out my GitHub to see projects I've worked on and am currently working on. 
-                        Each repository will feature videos and pictures that go in-depth and explain my 
-                        thought process behind the project. `; // eventually prompt user to go to projects page but currently just to check out repos
-    } else if (state == InformationDescriptionState.Secret) {
-      newDescription = `Thanks for taking the time to visit my website! Feel free to reach 
-                        out to collaborate with me on any future projects.`;
-    } else {
-      newDescription = ''; // this case is a backup, but shouldn't be able to be executed based on the current way the website is set up
-    }
-    setInformationDescription(newDescription);
+  const handleVisibleInformationDescriptionChange = (visibleInformation: number) => {
+    setVisibleInformationDescription(visibleInformation);
   };
 
   return (
@@ -199,7 +178,7 @@ export default function HomePage() {
             ${gridBoxColor}
           `}
         >
-          <div className="flex flex-col text-2xl space-y-8 font-sans">
+          <div className="flex flex-col text-2xl space-y-4 font-sans">
 
             {/* email information */}
             <div className="flex flex-row items-center gap-6">
@@ -213,7 +192,7 @@ export default function HomePage() {
                 />
               </div>
               <a
-                className={`${systemStatusOnline ? 'hover:text-(--color-grid-blue)' : 'hover:text-(--color-grid-meltdown)'} cursor-pointer transition-colors`}
+                className={`${systemStatusOnline ? 'hover:text-(--color-grid-blue)' : 'hover:text-(--color-grid-meltdown)'} duration-500 cursor-pointer transition-colors`}
                 href="mailto:aiden.henderson.c@gmail.com"
                 target="_blank"
                 onMouseEnter={() => handleEnterHoverText("Feel free to reach out regarding my resume, projects, or just to say hi! I'm always open for a chat!")}
@@ -235,7 +214,7 @@ export default function HomePage() {
                 />
               </div>
               <a
-                className={`${systemStatusOnline ? 'hover:text-(--color-grid-blue)' : 'hover:text-(--color-grid-meltdown)'} cursor-pointer transition-colors`}
+                className={`${systemStatusOnline ? 'hover:text-(--color-grid-blue)' : 'hover:text-(--color-grid-meltdown)'} duration-500 cursor-pointer transition-colors`}
                 href="https://linkedin.com/in/aidenchenderson"
                 target="_blank"
                 onMouseEnter={() => handleEnterHoverText("Check out my LinkedIn to explore my professional experience, skills, and academic journey.")}
@@ -257,7 +236,7 @@ export default function HomePage() {
                 />
               </div>
               <a
-                className={`${systemStatusOnline ? 'hover:text-(--color-grid-blue)' : 'hover:text-(--color-grid-meltdown)'} cursor-pointer transition-colors`}
+                className={`${systemStatusOnline ? 'hover:text-(--color-grid-blue)' : 'hover:text-(--color-grid-meltdown)'} duration-500 cursor-pointer transition-colors`}
                 href="https://github.com/aidenchenderson"
                 target="_blank"
                 onMouseEnter={() => handleEnterHoverText("Explore my GitHub to see the architecture, code, and ideas behind my projects.")}
@@ -272,7 +251,7 @@ export default function HomePage() {
 
         {/* extra information container that appears on hover */}
         <div
-          className="transition-opacity duration-300"
+          className="transition-opacity duration-500"
           style={{
             opacity: hoverInformation.visible ? 1 : 0
           }}
@@ -294,7 +273,7 @@ export default function HomePage() {
         </div>
 
         {/* container for more information about me */}
-        <div className="relative z-10 px-10 py-13">
+        <div className="relative z-10 px-10 py-12">
           <div className={`
             relative inline-block p-5
             border-2 transition-all duration-700 ease-in-out
@@ -315,7 +294,7 @@ export default function HomePage() {
                   <div className={`${systemStatusOnline ? 'info-button-wrapper' : 'info-button-wrapper-meltdown'} cursor-pointer p-0.5`}>
                     <button
                       className="info-button px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full border-none"
-                      onClick={() => { handleInformationDescriptionChange(InformationDescriptionState.QuickFacts) }}
+                      onClick={() => { handleVisibleInformationDescriptionChange(1) }}
                     >
                       Quick Facts
                     </button>
@@ -323,7 +302,7 @@ export default function HomePage() {
                   <div className={`${systemStatusOnline ? 'info-button-wrapper-yellow' : 'info-button-wrapper-yellow-meltdown'} cursor-pointer p-0.5`}>
                     <button
                       className="info-button-yellow px-3 py-2 cursor-pointer font-sans font-bold text-xl w-full border-none"
-                      onClick={() => { handleInformationDescriptionChange(InformationDescriptionState.Projects) }}
+                      onClick={() => { handleVisibleInformationDescriptionChange(2) }}
                     >
                       Projects
                     </button>
@@ -343,20 +322,48 @@ export default function HomePage() {
                   relative w-87.5 h-60 border-2 flex
                   transition-all duration-700 ease-in-out
                   ${gridBoxColor}
-                `}
-                >
-                  <div className="font-sans text-xl text-wrap items-center justify-center text-left px-5 content-center">
-                    <p>{informationDescription}</p>
+                `}>
+                  {/* to allow for smooth transitions, use different p classes with opacity
+                  although this takes up more space, without the transitions it looks too rigid */}
+                  <div className={`
+                      font-sans overflow-hidden text-xl text-wrap text-left
+                      items-center justify-center content-center 
+                      px-5 absolute inset-0 
+                      text-layer ${visibleInformationDescription === 0 ? 'opacity-100' : 'opacity-0'}
+                  `}>
+                    <p>{informationDescriptionOptions[0]}</p>
+                  </div>
+
+                  <div className={`
+                      font-sans overflow-hidden text-xl text-wrap text-left
+                      items-center justify-center content-center 
+                      px-5 absolute inset-0 
+                      text-layer ${visibleInformationDescription === 1 ? 'opacity-100' : 'opacity-0'}
+                  `}>
+                    <p>{informationDescriptionOptions[1]}</p>
+                  </div>
+                  <div className={`
+                      font-sans overflow-hidden text-xl text-wrap text-left
+                      items-center justify-center content-center 
+                      px-5 absolute inset-0 
+                      text-layer ${visibleInformationDescription === 2 ? 'opacity-100' : 'opacity-0'}
+                  `}>
+                    <p>{informationDescriptionOptions[2]}</p>
+                  </div>
+                  <div className={`
+                      font-sans overflow-hidden text-xl text-wrap text-left
+                      items-center justify-center content-center 
+                      px-5 absolute inset-0 
+                      text-layer ${visibleInformationDescription === 3 ? 'opacity-100' : 'opacity-0'}
+                  `}>
+                    <p>{informationDescriptionOptions[3]}</p>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
   );
 };
