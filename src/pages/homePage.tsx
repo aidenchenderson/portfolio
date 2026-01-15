@@ -5,6 +5,7 @@ import "../styles/HomePage.css";
 import Grid from "../components/grid";
 
 import type { MousePosition } from "../components/types";
+import Container from "../components/container";
 
 export default function HomePage() {
   // initialize mouse position to (0, 0) on component render
@@ -47,8 +48,9 @@ export default function HomePage() {
   return (
     <div
       onMouseMove={handleMousePositionChange}
-      className="relative min-h-screen w-full bg-[#050a10] overflow-hidden group"
+      className="relative min-h-screen w-full bg-[#050a10] overflow-hidden group flex items-center justify-center"
     >
+      {/* neon grid */}
       <Grid
         systemStatusOnline={systemStatusOnline}
         mouseIsMoving={mouseIsMoving}
@@ -56,7 +58,9 @@ export default function HomePage() {
       />
 
       {/* content container */}
-
+      <Container
+        systemStatusOnline={systemStatusOnline}
+      />
     </div>
   );
 };

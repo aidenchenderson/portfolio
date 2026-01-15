@@ -1,11 +1,6 @@
 import type { GridParameters } from "./types";
 
 export default function Grid({ systemStatusOnline, mouseIsMoving, mousePosition }: GridParameters) {
-  // system status message
-  const gridBoxColor = systemStatusOnline
-    ? 'bg-(--color-box-background) border-(--color-box-border) shadow-[0_0_20px_var(--color-box-background-shadow)]'
-    : 'bg-(--color-box-background-meltdown) border-(--color-box-border-meltdown) shadow-[0_0_20px_var(--color-box-background-shadow-meltdown)]';
-
   // masked grid background color
   const maskedGridBackgroundColor = systemStatusOnline
     ? 'bg-[linear-gradient(to_right,#f783ac_3px,transparent_3px),linear-gradient(to_bottom,#f783ac_3px,transparent_3px)]'
